@@ -13,48 +13,59 @@ ng add @ngrx/store-devtools@latest
 ng add @ngrx/schematics@latest
 ```
 
-### Installing ngrx/store
+### `@ngrx/store`
+
+- Core state container (Redux-style): holds app state and runs reducers.
+- Use it to `dispatch` actions and `select` state in components/services.
 
 ```bash
 # Store (reducers, selectors, dispatch, etc.)
 ng add @ngrx/store@latest
-ng add @ngrx/schematics@latest
-
 ```
 
-> [!NOTE]
-> We also add `@ngrx/schematics` to get the code generation capabilities for actions, reducers, effects, etc.
+### `@ngrx/effects`
 
-### Adding effects
+- Handles side effects like API calls, timers, and async workflows.
+- Keeps reducers pure by moving async logic out of reducers/components.
 
 ```bash
-# Effects (async side effects: API calls, etc.)
 ng add @ngrx/effects@latest
-
 ```
 
-### Adding DevTools
+### `@ngrx/entity`
+
+- Provides adapters/utilities for managing collection data (lists/dictionaries).
+- Reduces boilerplate for CRUD updates with helpers like `addOne`, `updateOne`.
 
 ```bash
-# Store DevTools (Redux DevTools integration)
-ng add @ngrx/store-devtools@latest
-
-```
-
-### For Router State in Store
-
-```bash
-# Router Store (keep Angular Router state in the Store)
-ng add @ngrx/router-store@latest
-
-```
-
-### For using Normalized collection
-
-```bash
-# Entity (helper utilities for collections)
 ng add @ngrx/entity@latest
+```
 
+### `@ngrx/router-store`
+
+- Syncs Angular Router state into the NgRx store.
+- Useful for route-based selectors and debugging navigation changes.
+
+```bash
+ng add @ngrx/router-store@latest
+```
+
+### `@ngrx/store-devtools`
+
+- Integrates with Redux DevTools extension for action/state inspection.
+- Useful for debugging: action history, state diffs, and time travel.
+
+```bash
+ng add @ngrx/store-devtools@latest
+```
+
+### `@ngrx/schematics`
+
+- Adds code generators for NgRx files (`action`, `reducer`, `effect`, `selector`, `feature`).
+- Speeds up setup and keeps structure consistent across features.
+
+```bash
+ng add @ngrx/schematics@latest
 ```
 
 ## 2) Generate root store setup
