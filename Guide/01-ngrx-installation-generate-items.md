@@ -68,6 +68,36 @@ ng add @ngrx/store-devtools@latest
 ng add @ngrx/schematics@latest
 ```
 
+### Base Template Setup
+
+```ts
+// src/app/reducers/index.ts
+import { isDevMode } from '@angular/core';
+import {
+  ActionReducer,
+  ActionReducerMap,
+  createFeatureSelector,
+  createSelector,
+  MetaReducer,
+} from '@ngrx/store';
+
+export interface State {}
+
+export const reducers: ActionReducerMap<State> = {};
+
+export const metaReducers: MetaReducer<State>[] = isDevMode() ? [] : [];
+```
+
+```ts
+// src/app/app.config.ts
+export const appConfig: ApplicationConfig = {
+  providers: [
+    // rest of providers...
+    provideStore(reducers, { metaReducers }),
+  ],
+};
+```
+
 ## 2) Generate root store setup
 
 Replace `src/app/app.config.ts` with your root config/module file if your setup is different.
