@@ -18,8 +18,12 @@ ng add @ngrx/schematics@latest
 ```bash
 # Store (reducers, selectors, dispatch, etc.)
 ng add @ngrx/store@latest
+ng add @ngrx/schematics@latest
 
 ```
+
+> [!NOTE]
+> We also add `@ngrx/schematics` to get the code generation capabilities for actions, reducers, effects, etc.
 
 ### Adding effects
 
@@ -66,19 +70,37 @@ Replace `src/app/app.config.ts` with your root config/module file if your setup 
 This is the fastest way to scaffold feature state with actions, reducer, selectors, and effects.
 
 ```bash
- ng generate feature products --group --creators
+ ng generate feature product --group
+```
+
+> [!NOTE]
+> `--group` Goal: Organize generated files into subfolders instead of dumping them all in one directory.
+
+With `--group`, the schematic nests by file type, e.g.:
+
+```bash
+items/
+actions/
+effects/
+reducers/
+selectors/
 ```
 
 ## 4) Generate each NgRx piece separately
 
 Use this when you want full control over files.
 
+> [!CAUTION]
+> If you run `ng generate feature ...` without the `@ngrx/schematics:` prefix, it only works if `@ngrx/schematics` is installed and registered so the CLI can resolve feature.
+>
+> Otherwise you’ll need the fully-qualified form 'ng generate @ngrx/schematics:feature'.
+
 ```bash
-ng generate action products
-ng generate reducer products
-ng generate selector products
-ng generate effect products
-ng generate entity products
+ng generate action item
+ng generate reducer item
+ng generate selector item
+ng generate effect item
+ng generate entity item
 ```
 
 ## 5) Redux pattern mapping in NgRx
