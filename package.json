@@ -33,9 +33,10 @@
     "@ngrx/effects": "^21.0.1",
     "@ngrx/entity": "^21.0.1",
     "@ngrx/store": "^21.0.1",
+    "@ngrx/store-devtools": "^21.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "@ngrx/store-devtools": "^21.0.1"
+    "@ngrx/router-store": "^21.0.1"
   },
   "devDependencies": {
     "@angular-eslint/builder": "21.2.0",
@@ -45,6 +46,7 @@
     "@eslint/js": "^9.39.2",
     "@ngrx/effects": "^21.0.1",
     "@ngrx/entity": "^21.0.1",
+    "@ngrx/router-store": "21.0.1",
     "@ngrx/schematics": "21.0.1",
     "@ngrx/store": "21.0.1",
     "@ngrx/store-devtools": "^21.0.1",
