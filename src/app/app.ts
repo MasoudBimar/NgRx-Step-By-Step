@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Item } from './models/item.model';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +12,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('NgRx-Step-By-Step');
+  readonly itemStore = inject(Store<Item>);
 
   protected name = 'Peter';
 
@@ -26,7 +29,8 @@ export class App {
 
 
   doSth() {
-    console.log("sth")
+    console.log("sth");
+    this.itemStore.dispatch({ type: 'Add Item', item: { id: '1', name: 'Item 1' } });
   }
 
 
