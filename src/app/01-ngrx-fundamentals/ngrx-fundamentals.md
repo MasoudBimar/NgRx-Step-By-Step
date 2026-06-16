@@ -40,6 +40,8 @@ Redux is built around three core ideas:
 
 Redux became popular because it makes state changes easier to trace. Instead of asking "which component changed this value?", you can inspect the action that was dispatched and the reducer that handled it.
 
+
+
 ## What Is NgRx?
 
 NgRx is the Angular implementation of Redux-style reactive state management. It gives Angular applications a predictable way to manage state with RxJS, TypeScript, and Angular dependency injection.
@@ -55,6 +57,9 @@ NgRx is not only one package. It is a collection of libraries:
 At the center of NgRx is the Store.
 
 Uni-Directional data flow is a core principle of NgRx. The flow looks like this:
+
+> [!NOTE]
+>  View create User Event, Component Dispatch an action to a Dispatcher function called a Reducer, Reducer uses action and current state from store to create the new state (Immutable), component uses selector to get the state and be notified when its changed.
 
 ```text
 Component -> dispatches Action -> Reducer updates State -> Selector reads State -> Component renders UI
@@ -109,6 +114,11 @@ Components should not know how the whole application state is built. They should
 ### State
 
 State is the data your application needs to remember.
+
+  - View State
+  - User Information
+  - Entity Data
+  - User Selection and Input
 
 Example:
 
