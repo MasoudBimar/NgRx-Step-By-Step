@@ -12,26 +12,6 @@ import { Store } from '@ngrx/store';
 })
 export class App {
   protected readonly title = signal('NgRx-Step-By-Step');
-  readonly itemStore = inject(Store<Item>);
-
-  protected name = 'Peter';
-
-  /**
-   *
-   */
-  constructor() {
-
-    setTimeout(() => {
-      this.name = 'Marry';
-      console.log(this.name);
-    }, 5000);
-  }
-
-
-  doSth() {
-    console.log("sth");
-    this.itemStore.dispatch({ type: 'Add Item', item: { id: '1', name: 'Item 1' } });
-  }
 
 
 }
