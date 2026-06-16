@@ -44,3 +44,19 @@ export const selectLastAddedItemName = createSelector(
   selectItems,
   (items) => items.at(-1)?.name ?? 'No items yet',
 );
+
+
+// ======================================================
+
+
+// import { createReducer, on } from '@ngrx/store';
+// import { increment, decrement, reset } from './counter.actions';
+
+// export const initialState = 0;
+
+// export const counterReducer = createReducer(
+//   initialState,
+//   on(increment, (state) => state + 1),
+//   on(decrement, (state) => state - 1),
+//   on(reset, () => 0)
+// );
