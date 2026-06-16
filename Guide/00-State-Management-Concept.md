@@ -1,5 +1,18 @@
 # State Management Ingredients
 
+- [State Management Ingredients](#state-management-ingredients)
+  - [1) State](#1-state)
+    - [State Notes](#state-notes)
+  - [2) Actions](#2-actions)
+    - [Actions Notes](#actions-notes)
+  - [3) Reducer](#3-reducer)
+    - [Reducer Notes](#reducer-notes)
+  - [4) Redux Store](#4-redux-store)
+  - [5) Redux Pattern](#5-redux-pattern)
+    - [Redus Pattern Notes](#redus-pattern-notes)
+  - [Quick Summary](#quick-summary)
+
+
 State management helps your app stay predictable as it grows.  
 In Angular + NgRx, the three core ingredients are:
 
@@ -45,7 +58,7 @@ In Angular + NgRx, the three core ingredients are:
 
 ## 3) Reducer
 
-`Reducer` is a pure function that takes the current state and an action, and returns a new state.
+`Reducer` is a pure function that takes the current state and an action, and returns a new state. it shouldnt be depends on outside variables.
 
 ### Reducer Notes
 
@@ -97,6 +110,9 @@ The `Redux pattern` is a one-way data flow:
 > NgRx is it's Angular Implemetation
 
 ### Redus Pattern Notes
+
+> [!NOTE]
+> Redux is not great for making simple thingsquickly. Its great for making really hard things simple (Jani Evakallio).
 
 - Reducers are pure functions: same input always produces same output.
 - State is read-only from the UI perspective; updates happen only via actions.

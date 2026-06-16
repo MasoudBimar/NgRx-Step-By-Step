@@ -6,7 +6,7 @@
   - [Why Do We Need NgRx?](#why-do-we-need-ngrx)
   - [NgRx Mental Model](#ngrx-mental-model)
   - [Core Building Blocks](#core-building-blocks)
-    - [State](#state)
+    - [State (Store)](#state-store)
     - [Actions](#actions)
     - [Reducers](#reducers)
     - [Selectors](#selectors)
@@ -39,6 +39,9 @@ Redux is built around three core ideas:
 3. **Changes are made with pure functions**: reducers receive the current state and an action, then return the next state.
 
 Redux became popular because it makes state changes easier to trace. Instead of asking "which component changed this value?", you can inspect the action that was dispatched and the reducer that handled it.
+
+> [!NOTE]
+> 3 principals of REDUX : `Store`, `Actions`, `Reducers`
 
 
 
@@ -111,7 +114,7 @@ Components should not know how the whole application state is built. They should
 
 ## Core Building Blocks
 
-### State
+### State (Store)
 
 State is the data your application needs to remember.
 
@@ -138,9 +141,20 @@ export const initialState: CounterState = {
 
 Good state is explicit. If the UI needs to show loading or error information, that should usually be represented in state.
 
+The Store is the Single Source of Truth and also Unshared state should not go in the Store.
+
 ### Actions
 
 Actions describe events. They should be written as facts, not commands.
+
+Action basic structure: 
+
+```ts
+  {
+    type: 'LOGIN',
+    payload: { username: 'Masoud', password:'expelliarmus'}
+  }
+```
 
 Good action names:
 
@@ -171,7 +185,19 @@ Reducers must be pure:
 - no date creation
 - no direct mutation of the existing state object
 
-Example:
+Basic Reducer Example: 
+
+```ts
+  function reducer(state, action) {
+    switch (action.type) {
+      case 'LOAD_USER':
+        return { users: [...state.users, action.payload]}
+    }
+  }
+
+```
+
+more general modern example:
 
 ```ts
 export const counterReducer = createReducer(
