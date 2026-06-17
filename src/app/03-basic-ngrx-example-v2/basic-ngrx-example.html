@@ -1,0 +1,56 @@
+<section class="example-shell">
+  <header class="example-header">
+    <div>
+      <p class="eyebrow">03 Basic NgRx Example</p>
+      <h1>Items state</h1>
+    </div>
+
+    <dl class="state-summary">
+      <div>
+        <dt>Total</dt>
+        <dd>{{ itemsCount$ | async }}</dd>
+      </div>
+      <div>
+        <dt>Last item</dt>
+        <dd>{{ lastAddedItemName$ | async }}</dd>
+      </div>
+    </dl>
+  </header>
+
+  <form class="item-form" (ngSubmit)="addItem()">
+    <label for="itemName">Item name</label>
+    <div class="form-row">
+      <input
+        id="itemName"
+        name="itemName"
+        type="text"
+        [(ngModel)]="itemName"
+        placeholder="Add a new item"
+        autocomplete="off"
+      />
+
+      <input
+        id="itemDesc"
+        name="itemDesc"
+        type="text"
+        [(ngModel)]="itemDesc"
+        placeholder="describe the item"
+        autocomplete="off"
+      />
+      <button type="submit">Add</button>
+      <button type="button" class="secondary" (click)="clearItems()">Clear</button>
+    </div>
+  </form>
+
+  <ul class="item-list" aria-label="Items">
+    @for (item of items$ | async; track item.id) {
+      <li>
+        <span class="item-id">#{{ item.id }}</span>
+        <span>{{ item.name }}</span>
+        <span style="font-size: x-small">{{ item.desc }}</span>
+      </li>
+    } @empty {
+      <li class="empty">No items in state.</li>
+    }
+  </ul>
+</section>

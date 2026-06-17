@@ -60,3 +60,13 @@ export const selectLastAddedItemName = createSelector(
 //   on(decrement, (state) => state - 1),
 //   on(reset, () => 0)
 // );
+
+
+// more basic reducer
+
+  // function reducer(state, action) {
+  //   switch (action.type) {
+  //     case 'LOAD_USER':
+  //       return { users: [...state.users, action.payload]}
+  //   }
+  // }
